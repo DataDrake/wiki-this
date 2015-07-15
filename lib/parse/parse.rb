@@ -1,6 +1,7 @@
 require_relative 'regex'
 require_relative 'headers'
 require_relative 'links'
+require_relative 'lists'
 
 $base = '/edge'
 $media = 'repos'
@@ -11,6 +12,7 @@ module WikiThis
     def parse2( wiki )
       wiki = headers(wiki)
       wiki = links(wiki)
+      wiki = lists(wiki)
       wiki
     end
 
@@ -32,8 +34,13 @@ header = "=== This is a header ===\n<code></code>\n== This is another header ==\
 
 links = "[[Audio:thing.png|thing]]\n [[Video:thing.png|thing]]\n [[Image:thing.png|thing]]\n [[P14452:thing.png|thing]]\n [[P14452:thing.png]]\n [[thing.png|thing]]\n [[thing.png]]\n [thing.png]\n [thing.png|thing]\n"
 
+lists = "* thing 1\n# number 1\n** thing 2\n"
 ap header
 ap parse( header )
 
 ap links
 ap parse( links )
+
+ap lists
+
+ap parse( lists)
