@@ -1,4 +1,5 @@
 FORMATTED = /('{2,5})([^']*)\1/
+BROKEN = /[-]{4}/
 
 module WikiThis
   module Parse
@@ -14,6 +15,10 @@ module WikiThis
           when 5
             s = "<i><b>#{f[2]}</b></i>"
         end
+        s
+      end
+      wiki.gsub!(BROKEN) do | f |
+        s = '<hr/>'
         s
       end
       wiki
