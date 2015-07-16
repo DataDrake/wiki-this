@@ -3,7 +3,8 @@ TABLE_CAPTION = /\|\+([^\n]*)/
 TABLE_HEADER = /(?:\|-\n)?((?:[!][^!\|]+)(?:[!|][^-][^!\|]+)*)/
 TABLE_HEADER_CELL = /[!\|]([^\n]+)\n/
 TABLE_ROW = /\|-\n((?:\|[^-]+\n)+)/
-TABLE_CELL = /\|([^-+\|]+)\n/
+TABLE_CELL = /[\|]{1,2}([^-+\|]+)/
+TABLE_CELL_STYLE = /[\w]*=["']\w*["']/
 
 module WikiThis
   module Parse
@@ -23,7 +24,12 @@ module WikiThis
           header.each do |h|
             table = "#{table}<tr>"
             h[0].scan(TABLE_HEADER_CELL).each do |d|
-              table = "#{table}<th>#{d[0]}</th>"
+              if d[0].include? '|'
+                d[0] = d[0].split('|')
+                table = "#{table}<th style='#{d[0][0]}'>#{d[0][1]}</th>"
+              else
+                table = "#{table}<th>#{d[0]}</th>"
+              end
             end
             table = "#{table}</tr>"
           end
