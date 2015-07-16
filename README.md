@@ -12,3 +12,4 @@ Wiki-this strives to be simple, and easy to use. It has been built upon a carefu
 * Headers
 * Links (Internal, External, Audio, Video, Image)
 * Lists (Ordered, Unordered, Definition)
+* Tables
