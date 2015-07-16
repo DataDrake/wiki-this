@@ -1,4 +1,5 @@
 require_relative 'regex'
+require_relative 'formatting'
 require_relative 'headers'
 require_relative 'links'
 require_relative 'lists'
@@ -10,6 +11,7 @@ module WikiThis
   module Parse
 
     def parse2( wiki )
+      wiki = formatting(wiki)
       wiki = headers(wiki)
       wiki = links(wiki)
       wiki = lists(wiki)
@@ -38,6 +40,8 @@ lists = "* thing 1\n# number 1\n** thing 2\n"
 
 def_lists = "; definitions\n; def 1 : a thing\n; def 2 : a thing 2\n\n"
 
+formatted = "''italic'' '''bold''' ''''bold as well'''' '''''bold and italic'''''"
+
 ap header
 ap parse( header )
 
@@ -49,3 +53,6 @@ ap parse( lists)
 
 ap def_lists
 ap parse( def_lists)
+
+ap formatted
+ap parse( formatted )

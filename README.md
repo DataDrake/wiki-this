@@ -8,6 +8,7 @@ Most of the Ruby community seems to have migrated toward Markdown. This is easy 
 Wiki-this strives to be simple, and easy to use. It has been built upon a carefully crafted set of Regex matching rules. This may not be the most efficient or speedy of implementations, but it promises to be an intriguing design that may be later ported for other markups.
 
 ## Supported Features
+* Formatting (Bold,Italic)
 * Headers
 * Links (Internal, External, Audio, Video, Image)
 * Lists (Ordered, Unordered, Definition)
