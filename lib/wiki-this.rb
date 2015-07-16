@@ -1,5 +1,4 @@
-## This is a gem
+require_relative '../lib/parse/parse'
 
 module WikiThis
-
 end
