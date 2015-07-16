@@ -18,7 +18,7 @@ module WikiThis
             stack.push(e[0].chr)
             l = "#{l}<#{$list_type[e[0].chr]}>"
           end
-          l = "#{l}<li>#{e[1]}/li>"
+          l = "#{l}<li>#{e[1]}</li>"
           if e[0].length < stack.length
             top = stack.pop
             l = "#{l}</#{$list_type[top]}>"
