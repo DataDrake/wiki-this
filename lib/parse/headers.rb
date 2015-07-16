@@ -1,4 +1,4 @@
-HEADER = /([=]+)\s*([^=]*)\s*([=]+)/
+HEADER = /([=]+)\s*([\w\s]*)\s*([=]+)/
 
 module WikiThis
   module Parse
