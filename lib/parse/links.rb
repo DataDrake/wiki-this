@@ -9,7 +9,7 @@ IMAGE_LINK = /\[Image:\s*([^\|\]]+)\s*(?:\|\s*(.*))?\]/
 VIDEO_LINK = /\[Video:\s*([^\|\]]+)\s*(?:\|\s*(.*))?\]/
 
 ## [Namespace:URN|Label]
-INTERNAL_LINK1 = /\[([^:]*):\s*([^\|\]]+)\s*(?:\|\s*(.*))?\]/
+INTERNAL_LINK1 = /\[([^\[\]:]*):\s*([^\|\]\[]+)\s*(?:\|\s*([^\]\[]*))?\]/
 ## [URN|Label]
 INTERNAL_LINK2 = /\[([^:\|\]]+)\s*(?:\|\s*(.*))?\]/
 ## URN[|LABEL]
