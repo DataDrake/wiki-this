@@ -11,7 +11,7 @@ VIDEO_LINK = /\[Video:\s*([^\|\]]+)\s*(?:\|\s*(.*))?\]/
 ## [Namespace:URN|Label]
 INTERNAL_LINK1 = /\[([^\[\]:]*):\s*([^\|\]\[]+)\s*(?:\|\s*([^\]\[]*))?\]/
 ## [URN|Label]
-INTERNAL_LINK2 = /\[([^:\|\]]+)\s*(?:\|\s*(.*))?\]/
+INTERNAL_LINK2 = /\[([^:\|\]\[]+)\s*(?:\|\s*(.*))?\]/
 ## URN[|LABEL]
 EXTERNAL_LINK = /^([^\|\[\]]+)(?:\|\s*(.+))?$/
 
