@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'wiki-this'
-  s.version     = '0.1.0'
+  s.version     = '0.1.3'
   s.date        = '2015-07-16'
   s.summary     = 'Converts MediaWiki to HTML'
   s.description = 'Modern Ruby gem for converting MediaWiki to well-structured HTML'

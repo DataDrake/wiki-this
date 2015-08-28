@@ -1,16 +1,16 @@
-LIST = /((?:[*#]+[^\n*#]+\n)+)/
-LIST_ELEMENT = /([*#]+)\s([^\n*#]+)\n/
+WIKI_LIST = /((?:[*#]+[^\n*#]+\n)+)/
+WIKI_LIST_ELEMENT = /([*#]+)\s([^\n*#]+)\n/
 
-DEF_LIST = /((?:;[^:;]+(?:\:[^\n]+)?\n)+)\n/
-DEF_ELEMENT = /;([^:;]+)(?:\:([^\n]+))?/
+WIKI_DEF_LIST = /((?:;[^:;]+(?:\:[^\n]+)?\n)+)\n/
+WIKI_DEF_ELEMENT = /;([^:;]+)(?:\:([^\n]+))?/
 
 $list_type = {'*' => 'ul', '#' => 'ol'}
 
 module WikiThis
   module Parse
     def lists( wiki )
-      wiki.gsub!(LIST) do | l |
-        list = l.scan(LIST_ELEMENT)
+      wiki.gsub!(WIKI_LIST) do | l |
+        list = l.scan(WIKI_LIST_ELEMENT)
         stack = []
         l = ''
         list.each do |e|
@@ -30,8 +30,8 @@ module WikiThis
         end
         l
       end
-      wiki.gsub!(DEF_LIST) do | l |
-        list = l.scan(DEF_ELEMENT)
+      wiki.gsub!(WIKI_DEF_LIST) do | l |
+        list = l.scan(WIKI_DEF_ELEMENT)
         l = '<dl>'
         list.each do |e|
           l = "#{l}<dt>#{e[0]}</dt><dd>#{e[1]}</dd>"

@@ -1,12 +1,12 @@
-FORMATTED = /('{2,5})([^']*)\1/
-BROKEN = /[-]{4}/
+WIKI_FORMATTED = /('{2,5})([^']*)\1/
+WIKI_BROKEN = /[-]{4}/
 
 module WikiThis
   module Parse
     def formatting( wiki )
-      wiki.gsub!(FORMATTED) do | f |
+      wiki.gsub!(WIKI_FORMATTED) do | f |
         s = ''
-        f = f.match(FORMATTED)
+        f = f.match(WIKI_FORMATTED)
         case(f[1].length)
           when 2
             s = "<i>#{f[2]}</i>"
@@ -17,7 +17,7 @@ module WikiThis
         end
         s
       end
-      wiki.gsub!(BROKEN) do | f |
+      wiki.gsub!(WIKI_BROKEN) do | f |
         s = '<hr/>'
         s
       end
