@@ -6,7 +6,7 @@ links = "[[Audio:thing.png|thing]]\n [[Video:thing.png|thing]]\n [[Image:thing.p
 
 lists = "* thing 1\n# number 1\n** thing 2\n"
 
-def_lists = "; definitions\n; def 1 : a thing\n; def 2 : a thing 2\n\n"
+def_lists = "; definitions\n; def 1 : a thing\n; def 2 : a thing 2\n"
 
 formatted = "''italic'' '''bold''' ''''bold as well'''' '''''bold and italic'''''"
 
@@ -103,11 +103,11 @@ superTable2 = "== Overview ==
 #ap links
 #ap parse( links )
 
-#ap lists
-#ap parse( lists)
+ap lists
+ap WikiThis.parse( lists)
 
-#ap def_lists
-#ap parse( def_lists)
+ap def_lists
+ap WikiThis.parse( def_lists)
 
 #ap formatted
 #ap parse( formatted )
