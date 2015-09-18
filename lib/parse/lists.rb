@@ -1,8 +1,8 @@
 WIKI_LIST = /((?:[*#]+[^\n*#]+\n)+)/
 WIKI_LIST_ELEMENT = /([*#]+)\s([^\n*#]+)/
 
-WIKI_DEF_LIST = /((?:;[^:;]+(?:\:[^\n]+)?\n)+)/
-WIKI_DEF_ELEMENT = /;([^:;]+)(?:\:([^\n]+))?/
+WIKI_DEF_LIST = /((?:[;][^:]+(?:[:;][^\n]+)?\n)+)/
+WIKI_DEF_ELEMENT = /([:;])([^\1\n]+)\n/
 
 $list_type = {'*' => 'ul', '#' => 'ol'}
 
@@ -31,13 +31,22 @@ module WikiThis
         l
       end
       wiki.gsub!(WIKI_DEF_LIST) do | l |
-        list = l.scan(WIKI_DEF_ELEMENT)
-        l = '<dl>'
-        list.each do |e|
-          l = "#{l}<dt>#{e[0]}</dt><dd>#{e[1]}</dd>"
-        end
-        l = "#{l}</dl>"
-        l
+				list = '<dl>'
+				list += l.gsub(WIKI_DEF_ELEMENT) do
+					if $1.eql? ';'
+						e = '<dt>'
+					else
+						e = '<dd>'
+					end
+					e += $2
+					if $1.eql? ';'
+						e += '<dt>'
+					else
+						e += '<dd>'
+					end
+					e
+				end
+        list + '</dl>'
       end
       wiki
     end

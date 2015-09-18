@@ -6,7 +6,7 @@ links = "[[Audio:thing.png|thing]]\n [[Video:thing.png|thing]]\n [[Image:thing.p
 
 lists = "* thing 1\n# number 1\n** thing 2\n"
 
-def_lists = "; definitions\n; def 1 : a thing\n; def 2 : a thing 2\n"
+def_lists = "; definitions\n; def 1\n: a thing\n; def 2\n: a thing 2\n"
 
 formatted = "''italic'' '''bold''' ''''bold as well'''' '''''bold and italic'''''"
 
