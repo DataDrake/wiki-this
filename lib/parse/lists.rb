@@ -1,7 +1,7 @@
 WIKI_LIST = /((?:[*#]+[^\n*#]+\n)+)/
 WIKI_LIST_ELEMENT = /([*#]+)\s([^\n*#]+)/
 
-WIKI_DEF_LIST = /((?:[;][^:]+(?:[:;][^\n]+)?\n)+)/
+WIKI_DEF_LIST = /((?:^[;:].*\n)+)/
 WIKI_DEF_ELEMENT = /([:;])([^\1\n]+)\n/
 
 $list_type = {'*' => 'ul', '#' => 'ol'}
