@@ -1,5 +1,5 @@
 ## [ ]
-WIKI_LINK = /\[(.*)\]/
+WIKI_LINK = /\[([^\[\]]+|\[.+\])\]/
 
 ## [Audio:URN|label]
 WIKI_AUDIO_LINK = /\[Audio:\s*([^\|\]]+)\s*(?:\|\s*(.*))?\]/
