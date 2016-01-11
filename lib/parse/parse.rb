@@ -15,6 +15,7 @@ module WikiThis
   module Parse
 
     def parse2( wiki )
+			wiki.delete!('__NOTOC__')
       wiki = formatting(wiki)
       wiki = headers(wiki)
       wiki = links(wiki)
