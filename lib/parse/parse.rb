@@ -5,9 +5,6 @@ require_relative 'links'
 require_relative 'lists'
 require_relative 'tables'
 
-$base = '/edge'
-$media = 'repos'
-
 WIKI_OUTER = /(\A[^<]+|[^<>\n]+\z)/
 WIKI_INNER = /<\/[^>]*>\n([^<]+)</
 
@@ -24,7 +21,9 @@ module WikiThis
       wiki
     end
 
-    def parse( wiki )
+    def parse( wiki , base, base_media)
+			$base = base
+			$media = base_media
       wiki.gsub!(WIKI_OUTER) do |w|
         parse2(w)
       end
