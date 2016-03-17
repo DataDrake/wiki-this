@@ -13,6 +13,7 @@ module WikiThis
 
     def parse2( wiki )
 			wiki.gsub!('__NOTOC__','')
+			wiki.gsub!('__TOC__','')
       wiki = formatting(wiki)
       wiki = headers(wiki)
       wiki = links(wiki)
