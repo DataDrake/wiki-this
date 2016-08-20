@@ -5,8 +5,8 @@ require_relative 'links'
 require_relative 'lists'
 require_relative 'tables'
 
-WIKI_OUTER = /(\A[^<]+|[^<>\n]+\z)/
-WIKI_INNER = /<\/[^>]*>\n([^<]+)</
+WIKI_OUTER = /(\A[^<]+|[^<>]+\z)/
+WIKI_INNER = /<\/[^>]*>\n([^<]+)(?:<)/
 
 module WikiThis
   module Parse
@@ -14,11 +14,11 @@ module WikiThis
     def parse2( wiki )
 			wiki.gsub!('__NOTOC__','')
 			wiki.gsub!('__TOC__','')
-      wiki = formatting(wiki)
       wiki = headers(wiki)
       wiki = links(wiki)
       wiki = lists(wiki)
       wiki = tables(wiki)
+			wiki = formatting(wiki)
       wiki
     end
 
